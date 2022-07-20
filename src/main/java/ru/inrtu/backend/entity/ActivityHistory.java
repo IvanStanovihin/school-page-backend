@@ -1,10 +1,17 @@
 package ru.inrtu.backend.entity;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import ru.inrtu.backend.enums.ActivityProgress;
 
 import javax.persistence.*;
 
+/**
+ * Класс для таблицы в которой хранятся записи о всх когда-либо проводимых активностях.
+ */
 @Entity
+@Data
+@NoArgsConstructor
 public class ActivityHistory {
 
     @Id
@@ -22,52 +29,11 @@ public class ActivityHistory {
     private ActivityProgress historyRecordType;
     private String recordCreateDate;
 
-    public ActivityHistory(Long id, Schoolchild schoolchild, StudyActivity activity,
+    public ActivityHistory(Schoolchild schoolchild, StudyActivity activity,
                            ActivityProgress historyRecordType, String recordCreateDate) {
-        this.id = id;
         this.schoolchild = schoolchild;
         this.activity = activity;
         this.historyRecordType = historyRecordType;
-        this.recordCreateDate = recordCreateDate;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Schoolchild getSchoolchild() {
-        return schoolchild;
-    }
-
-    public void setSchoolchild(Schoolchild schoolchild) {
-        this.schoolchild = schoolchild;
-    }
-
-    public StudyActivity getActivity() {
-        return activity;
-    }
-
-    public void setActivity(StudyActivity activity) {
-        this.activity = activity;
-    }
-
-    public ActivityProgress getHistoryRecordType() {
-        return historyRecordType;
-    }
-
-    public void setHistoryRecordType(ActivityProgress historyRecordType) {
-        this.historyRecordType = historyRecordType;
-    }
-
-    public String getRecordCreateDate() {
-        return recordCreateDate;
-    }
-
-    public void setRecordCreateDate(String recordCreateDate) {
         this.recordCreateDate = recordCreateDate;
     }
 }

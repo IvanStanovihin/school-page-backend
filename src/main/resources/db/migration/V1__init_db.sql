@@ -2,7 +2,7 @@ create sequence hibernate_sequence start 1 increment 1;
 
 create table activity_history (
     id                      bigserial not null,
-    history_record_type     int4,
+    history_record_type     varchar(255),
     record_create_date      varchar(255),
     study_activity_id       int8 not null,
     schoolchild_id          int8 not null,
@@ -16,7 +16,7 @@ create table schedule (
     date_of_event varchar(255),
     end_time varchar(255),
     start_time varchar(255),
-    study_activity_id int8 not null,
+    study_activity_id int8,
     primary key (id)
     );
 
@@ -36,7 +36,7 @@ create table schoolchild (
 
 create table study_activity (
     id bigserial not null,
-    activity_type int4,
+    activity_type varchar(255),
     description varchar(2048),
     end_date varchar(255),
     max_participants int4,

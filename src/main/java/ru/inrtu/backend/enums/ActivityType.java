@@ -4,9 +4,9 @@ import ru.inrtu.backend.entity.StudyActivity;
 
 public enum ActivityType {
 
-    Программа("Программа"),
-    Курс("Курс"),
-    Мероприятие("Мероприятие");
+    PROGRAM("программа"),
+    COURSE("курс"),
+    EVENT("мероприятие");
 
     private final String name;
 

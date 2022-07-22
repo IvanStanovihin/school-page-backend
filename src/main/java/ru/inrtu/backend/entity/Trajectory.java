@@ -1,9 +1,18 @@
 package ru.inrtu.backend.entity;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import javax.persistence.*;
 import java.util.Set;
 
 @Entity
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
 public class Trajectory {
 
     @Id
@@ -19,42 +28,18 @@ public class Trajectory {
                 )
     private Set<StudyActivity> activities;
 
-    public Trajectory(Long id, String name, String description, Set<StudyActivity> activities) {
-        this.id = id;
+    public Trajectory(String name, String description, Set<StudyActivity> activities) {
         this.name = name;
         this.description = description;
         this.activities = activities;
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public Set<StudyActivity> getActivities() {
-        return activities;
-    }
-
-    public void setActivities(Set<StudyActivity> activities) {
-        this.activities = activities;
+    @Override
+    public String toString() {
+        return "Trajectory{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                '}';
     }
 }

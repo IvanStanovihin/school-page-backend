@@ -1,7 +1,6 @@
 package ru.inrtu.backend.entity;
 
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import ru.inrtu.backend.enums.ActivityType;
 
 import javax.persistence.*;
@@ -10,8 +9,10 @@ import java.util.Set;
 
 @Entity
 @Table(name = "study_activity")
-@Data
+@AllArgsConstructor
 @NoArgsConstructor
+@Getter
+@Setter
 public class StudyActivity {
 
     @Id
@@ -23,10 +24,10 @@ public class StudyActivity {
     private String endDate;
     private Integer participationPoint;
     private Integer maxParticipants;
-    @Enumerated(EnumType.STRING)
-    private ActivityType activityType;
+    //Enum ActivityType
+    private String activityType;
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "activity", cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "activity")
     private Set<Schedule> schedule;
 
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "activity")
@@ -35,5 +36,23 @@ public class StudyActivity {
     @ManyToMany(fetch = FetchType.EAGER, mappedBy = "activities")
     private Set<Trajectory>trajectories;
 
+    public void addSchedule(Schedule newSchedule){
+        schedule.add(newSchedule);
+    }
+
+    @Override
+    public String toString(){
+        return "StudyActivity{ id= " + id +
+                ", name= " + name +
+                ", description= " + description +
+                ", startDate= " + startDate +
+                ", endDate= " + endDate +
+                ", participationPoint= " + participationPoint +
+                ", maxParticipants= " + maxParticipants +
+                ", activityType= " + activityType +
+                ", schedule= " + schedule +
+                ", trajectories= " + trajectories +
+                "}";
+    }
 
 }

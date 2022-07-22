@@ -1,16 +1,15 @@
 package ru.inrtu.backend.entity;
 
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.Set;
 
 @Entity
-@Data
+@AllArgsConstructor
 @NoArgsConstructor
-@ToString(exclude = {"activityHistory"})
+@Getter
+@Setter
 public class Schoolchild {
 
     @Id
@@ -27,4 +26,17 @@ public class Schoolchild {
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "schoolchild")
     private Set<ActivityHistory> activityHistory;
 
+    @Override
+    public String toString() {
+        return "Schoolchild{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", fatherName='" + fatherName + '\'' +
+                ", educationalOrganization='" + educationalOrganization + '\'' +
+                ", educationalClass='" + educationalClass + '\'' +
+                ", email='" + email + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                '}';
+    }
 }

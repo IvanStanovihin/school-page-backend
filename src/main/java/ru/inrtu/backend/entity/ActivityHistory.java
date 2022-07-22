@@ -1,17 +1,18 @@
 package ru.inrtu.backend.entity;
 
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import ru.inrtu.backend.enums.ActivityProgress;
+import lombok.*;
+import ru.inrtu.backend.enums.ActivityHistoryRecordType;
 
 import javax.persistence.*;
 
 /**
- * Класс для таблицы в которой хранятся записи о всх когда-либо проводимых активностях.
+ * Класс для таблицы в которой хранятся записи о всех когда-либо проводимых активностях.
  */
 @Entity
-@Data
+@AllArgsConstructor
 @NoArgsConstructor
+@Getter
+@Setter
 public class ActivityHistory {
 
     @Id
@@ -25,15 +26,26 @@ public class ActivityHistory {
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "study_activity_id", nullable = false)
     private StudyActivity activity;
-
-    private ActivityProgress historyRecordType;
     private String recordCreateDate;
+    //Enum ActivityHistoryRecordType
+    private String historyRecordType;
 
     public ActivityHistory(Schoolchild schoolchild, StudyActivity activity,
-                           ActivityProgress historyRecordType, String recordCreateDate) {
+                           String historyRecordType, String recordCreateDate) {
         this.schoolchild = schoolchild;
         this.activity = activity;
         this.historyRecordType = historyRecordType;
         this.recordCreateDate = recordCreateDate;
+    }
+
+    @Override
+    public String toString() {
+        return "ActivityHistory{" +
+                "id=" + id +
+                ", schoolchild=" + schoolchild +
+                ", activity=" + activity +
+                ", recordCreateDate='" + recordCreateDate + '\'' +
+                ", historyRecordType='" + historyRecordType + '\'' +
+                '}';
     }
 }

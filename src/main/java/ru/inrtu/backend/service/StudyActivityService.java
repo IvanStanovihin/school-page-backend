@@ -33,7 +33,7 @@ public class StudyActivityService {
     public StudyActivity create(StudyActivity studyActivity) throws StudyActivityAlreadyExistException{
         StudyActivity existingStudyActivity = studyActivityRepository.findExistingInDB(studyActivity.getName(), studyActivity.getStartDate());
         if (existingStudyActivity == null){
-            return studyActivityRepository.save(studyActivity);
+            return studyActivityRepository.saveAndFlush(studyActivity);
         }else{
             throw new StudyActivityAlreadyExistException();
         }

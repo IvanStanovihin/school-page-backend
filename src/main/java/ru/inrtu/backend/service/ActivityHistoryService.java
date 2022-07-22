@@ -28,10 +28,10 @@ public class ActivityHistoryService {
     }
 
     public ActivityHistory create(ActivityHistory activityHistory) throws ActivityHistoryAlreadyExistException{
-        ActivityHistory existingActivityHistory = activityHistoryRepository.finExistingInDB(activityHistory.getHistoryRecordType(),
+        ActivityHistory existingActivityHistory = activityHistoryRepository.findExistingInDB(activityHistory.getHistoryRecordType(),
                 activityHistory.getActivity().getId(), activityHistory.getSchoolchild().getId());
         if (existingActivityHistory == null){
-            return activityHistoryRepository.save(activityHistory);
+            return activityHistoryRepository.saveAndFlush(activityHistory);
         }else{
             throw new ActivityHistoryAlreadyExistException();
         }

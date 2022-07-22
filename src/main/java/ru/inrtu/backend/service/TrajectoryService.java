@@ -23,7 +23,7 @@ public class TrajectoryService {
         Trajectory existingTrajectory = trajectoryRepository.findExistingInDB(
                 trajectory.getDescription(), trajectory.getName());
         if (existingTrajectory == null){
-            return trajectoryRepository.save(trajectory);
+            return trajectoryRepository.saveAndFlush(trajectory);
         }else{
             throw new TrajectoryAlreadyExistException();
         }

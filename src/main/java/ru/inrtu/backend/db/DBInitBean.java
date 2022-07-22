@@ -54,6 +54,7 @@ public class DBInitBean {
         ActivityHistory historyRecord3 = new ActivityHistory(allSchoolchildren.get(0),
                 allActivities.get(0), ActivityHistoryRecordType.FINISHED.getName(), "25-07-2022");
         try {
+            System.out.println("History record1: " + historyRecord1.getActivity().getId());
             activityHistoryService.create(historyRecord1);
             activityHistoryService.create(historyRecord2);
             activityHistoryService.create(historyRecord3);

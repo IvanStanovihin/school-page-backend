@@ -23,7 +23,7 @@ public class ScheduleService {
                 schedule.getDateOfEvent(), schedule.getActivity().getId());
         if (existingSchedule == null){
             System.out.println("Existing schedule is NULL");
-            return scheduleRepository.save(schedule);
+            return scheduleRepository.saveAndFlush(schedule);
         }else{
             System.out.println("Existing schedule is NOT NULL");
             throw new ScheduleAlreadyExistException();

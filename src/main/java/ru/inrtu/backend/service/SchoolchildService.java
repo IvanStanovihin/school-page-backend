@@ -22,7 +22,7 @@ public class SchoolchildService {
         Schoolchild existingSchoolchild = schoolchildRepository.findExistingInDB(schoolchild.getName(), schoolchild.getSurname(),
                 schoolchild.getFatherName(), schoolchild.getEducationalClass());
         if (existingSchoolchild == null){
-            return schoolchildRepository.save(schoolchild);
+            return schoolchildRepository.saveAndFlush(schoolchild);
         }else{
             throw new SchoolchildAlreadyExistException();
         }

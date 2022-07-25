@@ -4,15 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import ru.inrtu.backend.customException.ActivityHistoryAlreadyExistException;
 import ru.inrtu.backend.customException.ScheduleAlreadyExistException;
-import ru.inrtu.backend.entity.ActivityHistory;
-import ru.inrtu.backend.entity.Schedule;
-import ru.inrtu.backend.entity.Schoolchild;
-import ru.inrtu.backend.entity.StudyActivity;
+import ru.inrtu.backend.entity.*;
 import ru.inrtu.backend.enums.ActivityHistoryRecordType;
-import ru.inrtu.backend.service.ActivityHistoryService;
-import ru.inrtu.backend.service.ScheduleService;
-import ru.inrtu.backend.service.SchoolchildService;
-import ru.inrtu.backend.service.StudyActivityService;
+import ru.inrtu.backend.service.*;
 
 import javax.annotation.PostConstruct;
 import java.util.List;
@@ -22,17 +16,20 @@ public class DBInitBean {
 
 
     private ScheduleService scheduleService;
+    private TrajectoryService trajectoryService;
     private SchoolchildService schoolchildService;
     private StudyActivityService studyActivityService;
     private ActivityHistoryService activityHistoryService;
 
     @Autowired
     public DBInitBean(SchoolchildService schoolchildService, ActivityHistoryService activityHistoryService,
-                      StudyActivityService studyActivityService, ScheduleService scheduleService){
+                      StudyActivityService studyActivityService, ScheduleService scheduleService,
+                      TrajectoryService trajectoryService){
         this.scheduleService = scheduleService;
+        this.trajectoryService = trajectoryService;
         this.schoolchildService = schoolchildService;
-        this.activityHistoryService = activityHistoryService;
         this.studyActivityService = studyActivityService;
+        this.activityHistoryService = activityHistoryService;
     }
 
     @PostConstruct
@@ -41,6 +38,9 @@ public class DBInitBean {
         allSchoolchildren.forEach(System.out::println);
 
         List<StudyActivity>allStudyActivities = studyActivityService.getAll();
+        List<Trajectory>allTrajectories = trajectoryService.getAll();
+        //Добавляем активностям траектории вручную, потому что в скриптах инициализации не видно idшников
+        studyActivitiesSetTrajectory(allStudyActivities, allTrajectories);
         allStudyActivities.forEach(System.out::println);
 
         initActivityHistory(allStudyActivities, allSchoolchildren);
@@ -81,5 +81,24 @@ public class DBInitBean {
         }catch (ScheduleAlreadyExistException ex){
             System.out.println(ex);
         }
+    }
+
+    private void studyActivitiesSetTrajectory(List<StudyActivity>studyActivity,
+                                                List<Trajectory>trajectories){
+        //Добавление для первой активности 3х траекторий
+        StudyActivity activity1 = studyActivity.get(0);
+        activity1.addTrajectory(trajectories.get(0));
+        activity1.addTrajectory(trajectories.get(1));
+        activity1.addTrajectory(trajectories.get(2));
+        studyActivityService.update(activity1);
+
+        StudyActivity activity2 = studyActivity.get(1);
+        activity2.addTrajectory(trajectories.get(0));
+        activity2.addTrajectory(trajectories.get(1));
+        studyActivityService.update(activity2);
+
+        StudyActivity activity3 = studyActivity.get(2);
+        activity3.addTrajectory(trajectories.get(2));
+        studyActivityService.update(activity3);
     }
 }

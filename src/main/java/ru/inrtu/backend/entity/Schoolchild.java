@@ -23,9 +23,6 @@ public class Schoolchild {
     private String email;
     private String phoneNumber;
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "schoolchild")
-    private Set<ActivityHistory> activityHistory;
-
     @Override
     public String toString() {
         return "Schoolchild{" +

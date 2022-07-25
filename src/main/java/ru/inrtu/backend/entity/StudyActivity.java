@@ -47,4 +47,8 @@ public class StudyActivity {
                 "}";
     }
 
+    public void addTrajectory(Trajectory trajectory){
+        trajectories.add(trajectory);
+    }
+
 }

@@ -19,7 +19,7 @@ public class StudyActivityService {
     }
 
     public StudyActivity get(Long id){
-        return studyActivityRepository.getOne(id);
+        return studyActivityRepository.findById(id).orElseThrow();
     }
 
     public List<StudyActivity> getAll(){

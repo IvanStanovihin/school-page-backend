@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.net.http.HttpResponse;
 
 @RestController
-@RequestMapping("/school-page/api")
+@RequestMapping("/schoolchild-page/api")
 public class MainController {
 
     @GetMapping("/testMethod")

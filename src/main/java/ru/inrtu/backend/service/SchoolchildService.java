@@ -41,6 +41,6 @@ public class SchoolchildService {
     }
 
     public Schoolchild get(Long id){
-        return schoolchildRepository.getOne(id);
+        return schoolchildRepository.findById(id).orElseThrow();
     }
 }

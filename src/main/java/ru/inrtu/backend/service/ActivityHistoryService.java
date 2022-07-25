@@ -20,7 +20,7 @@ public class ActivityHistoryService {
     }
 
     public ActivityHistory get(Long id){
-        return activityHistoryRepository.getOne(id);
+        return activityHistoryRepository.findById(id).orElseThrow();
     }
 
     public List<ActivityHistory>getAll(){

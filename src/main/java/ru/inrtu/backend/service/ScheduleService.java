@@ -39,7 +39,7 @@ public class ScheduleService {
     }
 
     public Schedule get(Long id){
-        return scheduleRepository.getOne(id);
+        return scheduleRepository.findById(id).orElseThrow();
     }
 
     public List<Schedule> getAll(){

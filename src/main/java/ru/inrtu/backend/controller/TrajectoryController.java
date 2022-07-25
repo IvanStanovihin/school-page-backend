@@ -59,6 +59,4 @@ public class TrajectoryController {
         trajectoryService.delete(id);
         return ResponseEntity.ok().build();
     }
-
-
 }

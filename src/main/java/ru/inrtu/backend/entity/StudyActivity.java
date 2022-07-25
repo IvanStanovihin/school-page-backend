@@ -26,7 +26,7 @@ public class StudyActivity {
     private Integer maxParticipants;
     //Enum ActivityType
     private String activityType;
-    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "activities_trajectories", joinColumns = {@JoinColumn(name = "study_activity_id")},
                 inverseJoinColumns = {@JoinColumn(name = "trajectory_id")}
                 )

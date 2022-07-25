@@ -33,7 +33,7 @@ public class ScheduleController {
     }
 
     @GetMapping("/schedules")
-    public ResponseEntity<?> getSchedules() {
+    public ResponseEntity<?> getAllSchedules() {
         List<Schedule> schedules = scheduleService.getAll();
         return ResponseEntity.ok(schedules);
     }

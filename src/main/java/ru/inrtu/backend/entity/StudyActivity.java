@@ -26,19 +26,12 @@ public class StudyActivity {
     private Integer maxParticipants;
     //Enum ActivityType
     private String activityType;
-
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "activity")
-    private Set<Schedule> schedule;
-
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "activity")
-    private Set<ActivityHistory>historyRecords;
-
-    @ManyToMany(fetch = FetchType.EAGER, mappedBy = "activities")
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinTable(name = "activities_trajectories", joinColumns = {@JoinColumn(name = "study_activity_id")},
+                inverseJoinColumns = {@JoinColumn(name = "trajectory_id")}
+                )
     private Set<Trajectory>trajectories;
 
-    public void addSchedule(Schedule newSchedule){
-        schedule.add(newSchedule);
-    }
 
     @Override
     public String toString(){
@@ -50,7 +43,6 @@ public class StudyActivity {
                 ", participationPoint= " + participationPoint +
                 ", maxParticipants= " + maxParticipants +
                 ", activityType= " + activityType +
-                ", schedule= " + schedule +
                 ", trajectories= " + trajectories +
                 "}";
     }

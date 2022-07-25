@@ -21,17 +21,10 @@ public class Trajectory {
     private String name;
     private String description;
 
-    @ManyToMany
-    @JoinTable(name = "activity_trajectory",
-                joinColumns = @JoinColumn(name = "trajectory_id", referencedColumnName = "id"),
-                inverseJoinColumns = @JoinColumn(name = "study_activity_id", referencedColumnName = "id")
-                )
-    private Set<StudyActivity> activities;
 
     public Trajectory(String name, String description, Set<StudyActivity> activities) {
         this.name = name;
         this.description = description;
-        this.activities = activities;
     }
 
     @Override

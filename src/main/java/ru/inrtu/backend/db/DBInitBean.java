@@ -4,9 +4,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import ru.inrtu.backend.customException.ActivityHistoryAlreadyExistException;
 import ru.inrtu.backend.customException.ScheduleAlreadyExistException;
-import ru.inrtu.backend.entity.*;
+import ru.inrtu.backend.entity.ActivityHistory;
+import ru.inrtu.backend.entity.Schedule;
+import ru.inrtu.backend.entity.Schoolchild;
+import ru.inrtu.backend.entity.StudyActivity;
 import ru.inrtu.backend.enums.ActivityHistoryRecordType;
-import ru.inrtu.backend.enums.ActivityType;
 import ru.inrtu.backend.service.ActivityHistoryService;
 import ru.inrtu.backend.service.ScheduleService;
 import ru.inrtu.backend.service.SchoolchildService;
@@ -14,7 +16,6 @@ import ru.inrtu.backend.service.StudyActivityService;
 
 import javax.annotation.PostConstruct;
 import java.util.List;
-import java.util.Set;
 
 @Component
 public class DBInitBean {
@@ -71,10 +72,6 @@ public class DBInitBean {
                 "23-07-2022", "12:00", "14:00", "A100");
         Schedule schedule3 = new Schedule(activity1,
                 "24-07-2022", "11:00", "13:00", "B204");
-//        activity1.addSchedule(schedule1);
-//        activity1.addSchedule(schedule2);
-//        activity1.addSchedule(schedule3);
-//        studyActivityService.update(activity1);
         Schedule scheduleForUpdate = new Schedule(4L, activity1, "22-07-2022", "10:00", "12:00", "В100" );
         scheduleService.update(scheduleForUpdate);
         try {
@@ -84,8 +81,5 @@ public class DBInitBean {
         }catch (ScheduleAlreadyExistException ex){
             System.out.println(ex);
         }
-        System.out.println("Schedule in get(0) activity: ");
-        Set<Schedule> activitySchedule = activity1.getSchedule();
-        activitySchedule.forEach(System.out::println);
     }
 }

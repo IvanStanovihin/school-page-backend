@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import ru.inrtu.backend.customException.ActivityHistoryAlreadyExistException;
 import ru.inrtu.backend.customException.ScheduleAlreadyExistException;
-import ru.inrtu.backend.entity.*;
+import ru.inrtu.backend.entity.logic.*;
 import ru.inrtu.backend.enums.ActivityHistoryRecordType;
 import ru.inrtu.backend.service.*;
 
@@ -67,12 +67,12 @@ public class DBInitBean {
     private void initSchedule(List<StudyActivity>allActivities){
         StudyActivity activity1 = allActivities.get(0);
         Schedule schedule1 = new Schedule(activity1,
-                "22-07-2022", "10:00", "12:00", "B100");
+                "22-07-2022", "22-07-2022","10:00", "12:00", "B100");
         Schedule schedule2 = new Schedule(activity1,
-                "23-07-2022", "12:00", "14:00", "A100");
+                "23-07-2022", "23-07-2022", "12:00", "14:00", "A100");
         Schedule schedule3 = new Schedule(activity1,
-                "24-07-2022", "11:00", "13:00", "B204");
-        Schedule scheduleForUpdate = new Schedule(4L, activity1, "22-07-2022", "10:00", "12:00", "В100" );
+                "24-07-2022", "24-07-2022", "11:00", "13:00", "B204");
+        Schedule scheduleForUpdate = new Schedule(4L, activity1, "22-07-2022", "22-07-2022", "10:00", "12:00", "В100" );
         scheduleService.update(scheduleForUpdate);
         try {
             scheduleService.create(schedule1);

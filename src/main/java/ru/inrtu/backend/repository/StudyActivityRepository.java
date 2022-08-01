@@ -2,7 +2,7 @@ package ru.inrtu.backend.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
-import ru.inrtu.backend.entity.StudyActivity;
+import ru.inrtu.backend.entity.logic.StudyActivity;
 
 public interface StudyActivityRepository extends JpaRepository<StudyActivity, Long> {
 

@@ -3,7 +3,7 @@ package ru.inrtu.backend.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.inrtu.backend.customException.ScheduleAlreadyExistException;
-import ru.inrtu.backend.entity.Schedule;
+import ru.inrtu.backend.entity.logic.Schedule;
 import ru.inrtu.backend.repository.ScheduleRepository;
 
 import java.util.List;
@@ -20,7 +20,7 @@ public class ScheduleService {
 
     public Schedule create(Schedule schedule) throws ScheduleAlreadyExistException{
         Schedule existingSchedule = scheduleRepository.findExistingInDB(
-                schedule.getDateOfEvent(), schedule.getActivity().getId());
+                schedule.getStartEventDate(), schedule.getEndEventDate(), schedule.getActivity().getId());
         if (existingSchedule == null){
             System.out.println("Existing schedule is NULL");
             return scheduleRepository.saveAndFlush(schedule);

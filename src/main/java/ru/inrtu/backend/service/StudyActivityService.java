@@ -3,7 +3,7 @@ package ru.inrtu.backend.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.inrtu.backend.customException.StudyActivityAlreadyExistException;
-import ru.inrtu.backend.entity.StudyActivity;
+import ru.inrtu.backend.entity.logic.StudyActivity;
 import ru.inrtu.backend.repository.StudyActivityRepository;
 
 import java.util.List;

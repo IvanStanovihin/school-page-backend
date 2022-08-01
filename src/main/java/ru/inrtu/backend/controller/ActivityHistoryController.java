@@ -6,7 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ru.inrtu.backend.customException.ActivityHistoryAlreadyExistException;
 import ru.inrtu.backend.customException.ActivityHistoryNotExistException;
-import ru.inrtu.backend.entity.ActivityHistory;
+import ru.inrtu.backend.entity.logic.ActivityHistory;
 import ru.inrtu.backend.service.ActivityHistoryService;
 
 import java.util.List;

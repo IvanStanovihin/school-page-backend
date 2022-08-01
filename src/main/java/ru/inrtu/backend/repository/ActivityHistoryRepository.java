@@ -2,7 +2,7 @@ package ru.inrtu.backend.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
-import ru.inrtu.backend.entity.ActivityHistory;
+import ru.inrtu.backend.entity.logic.ActivityHistory;
 
 public interface ActivityHistoryRepository extends JpaRepository<ActivityHistory, Long>{
 

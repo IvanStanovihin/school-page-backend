@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.inrtu.backend.customException.ActivityHistoryAlreadyExistException;
 import ru.inrtu.backend.customException.ActivityHistoryNotExistException;
-import ru.inrtu.backend.entity.ActivityHistory;
+import ru.inrtu.backend.entity.logic.ActivityHistory;
 import ru.inrtu.backend.repository.ActivityHistoryRepository;
 
 import java.util.List;

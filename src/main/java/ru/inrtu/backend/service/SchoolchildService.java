@@ -3,7 +3,7 @@ package ru.inrtu.backend.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.inrtu.backend.customException.SchoolchildAlreadyExistException;
-import ru.inrtu.backend.entity.Schoolchild;
+import ru.inrtu.backend.entity.logic.Schoolchild;
 import ru.inrtu.backend.repository.SchoolchildRepository;
 
 import java.util.List;

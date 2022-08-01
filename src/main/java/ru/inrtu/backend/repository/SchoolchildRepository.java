@@ -2,7 +2,7 @@ package ru.inrtu.backend.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
-import ru.inrtu.backend.entity.Schoolchild;
+import ru.inrtu.backend.entity.logic.Schoolchild;
 
 public interface SchoolchildRepository extends JpaRepository<Schoolchild, Long> {
 

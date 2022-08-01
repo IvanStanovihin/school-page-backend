@@ -1,10 +1,8 @@
-package ru.inrtu.backend.entity;
+package ru.inrtu.backend.entity.logic;
 
 import lombok.*;
-import ru.inrtu.backend.enums.ActivityType;
 
 import javax.persistence.*;
-import java.util.Locale;
 import java.util.Set;
 
 @Entity

@@ -1,7 +1,6 @@
-package ru.inrtu.backend.entity;
+package ru.inrtu.backend.entity.logic;
 
 import lombok.*;
-import ru.inrtu.backend.enums.ActivityHistoryRecordType;
 
 import javax.persistence.*;
 

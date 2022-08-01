@@ -1,7 +1,5 @@
 package ru.inrtu.backend.enums;
 
-import ru.inrtu.backend.entity.StudyActivity;
-
 public enum ActivityType {
 
     PROGRAM("программа"),

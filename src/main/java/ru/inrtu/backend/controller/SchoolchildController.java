@@ -4,10 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import ru.inrtu.backend.customException.ScheduleAlreadyExistException;
 import ru.inrtu.backend.customException.SchoolchildAlreadyExistException;
-import ru.inrtu.backend.entity.Schedule;
-import ru.inrtu.backend.entity.Schoolchild;
+import ru.inrtu.backend.entity.logic.Schoolchild;
 import ru.inrtu.backend.service.SchoolchildService;
 
 import java.util.List;

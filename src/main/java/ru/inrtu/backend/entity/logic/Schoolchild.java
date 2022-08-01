@@ -1,4 +1,4 @@
-package ru.inrtu.backend.entity;
+package ru.inrtu.backend.entity.logic;
 
 import lombok.*;
 

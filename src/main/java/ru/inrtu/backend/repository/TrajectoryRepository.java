@@ -1,9 +1,8 @@
 package ru.inrtu.backend.repository;
 
-import org.postgresql.core.NativeQuery;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
-import ru.inrtu.backend.entity.Trajectory;
+import ru.inrtu.backend.entity.logic.Trajectory;
 
 public interface TrajectoryRepository extends JpaRepository<Trajectory, Long> {
 

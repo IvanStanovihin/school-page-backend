@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.inrtu.backend.customException.TrajectoryAlreadyExistException;
 import ru.inrtu.backend.customException.TrajectoryNotFoundException;
-import ru.inrtu.backend.entity.Trajectory;
+import ru.inrtu.backend.entity.logic.Trajectory;
 import ru.inrtu.backend.repository.TrajectoryRepository;
 
 import java.util.List;

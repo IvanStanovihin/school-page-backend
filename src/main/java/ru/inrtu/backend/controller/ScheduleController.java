@@ -5,7 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ru.inrtu.backend.customException.ScheduleAlreadyExistException;
-import ru.inrtu.backend.entity.Schedule;
+import ru.inrtu.backend.entity.logic.Schedule;
 import ru.inrtu.backend.service.ScheduleService;
 
 import java.util.List;

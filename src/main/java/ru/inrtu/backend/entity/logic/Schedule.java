@@ -1,4 +1,4 @@
-package ru.inrtu.backend.entity;
+package ru.inrtu.backend.entity.logic;
 
 import lombok.*;
 
@@ -19,15 +19,17 @@ public class Schedule {
     @JoinColumn(name = "study_activity_id", nullable = false)
     private StudyActivity activity;
 
-    private String dateOfEvent;
+    private String startEventDate;
+    private String endEventDate;
     private String startTime;
     private String endTime;
     private String cabinetNumber;
 
-    public Schedule(StudyActivity activity, String dateOfEvent,
+    public Schedule(StudyActivity activity, String startEventDate, String endEventDate,
                     String startTime, String endTime, String cabinetNumber) {
         this.activity = activity;
-        this.dateOfEvent = dateOfEvent;
+        this.startEventDate = startEventDate;
+        this.endEventDate = endEventDate;
         this.startTime = startTime;
         this.endTime = endTime;
         this.cabinetNumber = cabinetNumber;
@@ -37,7 +39,8 @@ public class Schedule {
     public String toString() {
         return "Schedule{" +
                 "id=" + id +
-                ", dateOfEvent='" + dateOfEvent + '\'' +
+                ", startEventDate='" + startEventDate + '\'' +
+                ", endEventDate='" + endEventDate + '\'' +
                 ", startTime='" + startTime + '\'' +
                 ", endTime='" + endTime + '\'' +
                 ", cabinetNumber='" + cabinetNumber + '\'' +

@@ -6,7 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ru.inrtu.backend.customException.TrajectoryAlreadyExistException;
 import ru.inrtu.backend.customException.TrajectoryNotFoundException;
-import ru.inrtu.backend.entity.Trajectory;
+import ru.inrtu.backend.entity.logic.Trajectory;
 import ru.inrtu.backend.service.TrajectoryService;
 
 import java.util.List;

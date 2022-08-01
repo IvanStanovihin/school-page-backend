@@ -13,7 +13,8 @@ create table activity_history (
 create table schedule (
     id bigserial not null,
     cabinet_number varchar(255),
-    date_of_event varchar(255),
+    start_event_date varchar(255),
+    end_event_date varchar(255),
     end_time varchar(255),
     start_time varchar(255),
     study_activity_id int8,

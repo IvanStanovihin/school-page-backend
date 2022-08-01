@@ -1,12 +1,11 @@
 package ru.inrtu.backend.controller;
 
-import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ru.inrtu.backend.customException.StudyActivityAlreadyExistException;
-import ru.inrtu.backend.entity.StudyActivity;
+import ru.inrtu.backend.entity.logic.StudyActivity;
 import ru.inrtu.backend.service.StudyActivityService;
 
 import java.util.List;
